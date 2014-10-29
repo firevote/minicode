@@ -5,18 +5,21 @@
     font-family: Microsoft Yahei,Hiragino Sans GB,WenQuanYi Micro Hei,sans-serif;
 }
 
+/*index.html start --------------------------------------------------------*/
 .main-body{
-    margin: 0 auto;
-    min-width: 1000px;
-    width: 90%;
+    /*border: 1px solid red;*/
+    position: relative;
+    margin-left: 262px;
+    z-index: 2;
 }
 
 .main-nav-left {
     border-right:2px solid firebrick;
-    width: 260px;
-    min-height: 500px;
-    height: 100%;
-    float: left;
+    left: 0;
+    width: auto;
+    position: fixed;
+    min-height: 100%;
+    z-index: 1;
 }
 
 .main-nav-left img{
@@ -34,6 +37,7 @@
     text-align: right;
     color:firebrick;
     width: 251px;
+    padding-right: 10px;
 }
 
 .main-nav-left li:hover{
@@ -43,7 +47,10 @@
 
 .main-right-region {
     border:1px solid green;
-    width: 70%;
-    float: left;
-    height: 300px;
+    min-width: 700px;
+    width: 90%;
+    min-height: 100%;
+    padding: 30px 40px 20px 20px;
 }
+
+/*index.html end --------------------------------------------------------*/
