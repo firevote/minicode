@@ -91,13 +91,13 @@ class spController {
 	{
 		return $this->__template_vals[$name];
 	}
-	
-	/**
-	 * 输出模板
-	 *
-     * @param $tplname   模板路径及名称
-     * @param $output   是否直接显示模板，设置成FALSE将返回HTML而不输出
-	 */
+
+    /**
+     * 输出模板
+     * @param $tplname
+     * @param bool $output
+     * @return string
+     */
 	public function display($tplname, $output = TRUE)
 	{
 		@ob_start();
@@ -109,11 +109,11 @@ class spController {
 		}
 		if( TRUE != $output )return ob_get_clean();
 	}
-	
-	/**
-	 * 自动输出页面
-	 * @param tplname 模板文件路径
-	 */
+
+    /**
+     * 自动输出页面
+     * @param $tplname 模板文件路径
+     */
 	public function auto_display($tplname)
 	{
 		if( TRUE != $this->v->displayed && FALSE != $GLOBALS['G_SP']['view']['auto_display']){
@@ -141,10 +141,12 @@ class spController {
 		$this->v->addfuncs();
 		return $this->v->engine;
 	}
-	/**
-	 * 设置当前用户的语言
-     * @param $lang   语言标识
-	 */
+
+    /**
+     * 设置当前用户的语言
+     * @param $lang 语言标识
+     * @return bool
+     */
 	public function setLang($lang)
 	{
 		if( array_key_exists($lang, $GLOBALS['G_SP']["lang"]) ){
@@ -186,14 +188,13 @@ class spArgs {
 	public function __construct(){
 		$this->args = $_REQUEST;
 	}
-	
-	/**
-	 * 获取应用程序请求变量值，同时也可以指定获取的变量所属。
-	 * 
-	 * @param name    获取的变量名称，如果为空，则返回全部的请求变量
-	 * @param default    当前获取的变量不存在的时候，将返回的默认值
-	 * @param method    获取位置，取值GET，POST，COOKIE
-	 */
+
+    /**
+     * @param null $name 获取的变量名称，如果为空，则返回全部的请求变量
+     * @param bool $default 当前获取的变量不存在的时候，将返回的默认值
+     * @param null $method 获取位置，取值GET，POST，COOKIE
+     * @return bool|null
+     */
 	public function get($name = null, $default = FALSE, $method = null)
 	{
 		if(null != $name){
@@ -217,31 +218,32 @@ class spArgs {
 		}
 	}
 
-	/**
-	 * 设置（增加）环境变量值，该名称将覆盖原来的环境变量名称
-	 * 
-	 * @param name    环境变量名称
-	 * @param value    环境变量值
-	 */
+    /**
+     * 设置（增加）环境变量值，该名称将覆盖原来的环境变量名称
+     * @param $name 环境变量名称
+     * @param $value 环境变量值
+     */
 	public function set($name, $value)
 	{
 		$this->args[$name] = $value;
 	}
 
-	/**
-	 * 检测是否存在某值
-	 * 
-	 * @param name    待检测的环境变量名称
-	 */
+
+    /**
+     * 检测是否存在某值
+     * @param $name 待检测的环境变量名称
+     * @return bool
+     */
 	public function has($name)
 	{
 		return isset($this->args[$name]);
 	}
 
-	/**
-	 * 构造输入函数，标准用法
-	 * @param args    环境变量名称的参数
-	 */
+    /**
+     * 构造输入函数，标准用法
+     * @param int $args 环境变量名称的参数
+     * @return $this|bool|null
+     */
 	public function __input($args = -1)
 	{
 		if( -1 == $args )return $this;

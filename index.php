@@ -7,7 +7,7 @@ define("SP_PATH",dirname(__FILE__).'/SpeedPHP');
 
 // 应用程序配置
 $spConfig = array(
-    'default_controller' => 'main', // 默认控制器名称
+    'default_controller' => 'page_provider', // 默认控制器名称
     'default_action'=>'index',      // 默认动作名称
     'url_controller'=>'c',          // 请求时控制器变量标识
     'url_action'=>'a',              // 请求时动作变量标识
