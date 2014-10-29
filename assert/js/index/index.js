@@ -3,7 +3,6 @@
  */
 define(function(require,exports){
     function init() {
-        alert(1);
     }
 
     exports.init = init;
