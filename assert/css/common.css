@@ -37,6 +37,7 @@
     text-align: right;
     color:firebrick;
     width: 251px;
+    line-height: 1.5;
     padding-right: 10px;
 }
 
@@ -54,3 +55,16 @@
 }
 
 /*index.html end --------------------------------------------------------*/
+
+.loading {
+    position: fixed;
+    min-width: 99.9%;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+}
+
+.loading img {
+    width: 100%;
+    height: 2px;
+}
