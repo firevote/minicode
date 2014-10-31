@@ -1,3 +1,33 @@
+<style type="text/css" >
+    /*code mirror end --------------------------------------------------------*/
+    .CodeMirror { height: auto;  border: 1px solid #ddd;  font-family: monospace; }
+    .CodeMirror-scroll { height: auto; }
+    .CodeMirror pre { padding-left: 7px; line-height: 1.25; }
+    /*code mirror end --------------------------------------------------------*/
+</style>
 <div>
-    Living room
+    <textarea id=demotext>
+<!-- Create a simple CodeMirror instance -->
+<link rel="stylesheet" href="lib/codemirror.css">
+<script src="lib/codemirror.js"></script>
+<script>
+    var editor = CodeMirror.fromTextArea(myTextarea, {
+        mode: "text/html"
+    });
+</script>
+    </textarea>
+
+
 </div>
+
+
+<script type="text/javascript">
+    seajs.config({
+        alias: {},
+        debug: 0
+        // 0: 只输出少量信息 1：输出大量信息 2：对已加载的文件不进行缓存
+    });
+    seajs.use('index/living_room', function (i) {
+        i.init();
+    });
+</script>

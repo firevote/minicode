@@ -38,6 +38,7 @@ define(function(require,exports){
             show_page_loading();
             controls.page_node.load(urls.get_page_url,post_args,function() {
                 remove_page_loading();
+
             });
         });
     }
